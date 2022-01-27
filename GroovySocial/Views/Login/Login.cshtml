@@ -1,0 +1,29 @@
+﻿@model UserViewModel
+
+@using (Html.BeginForm("Login", "Login", FormMethod.Post, new { @class = "", role= "form", id = "login"}))
+{
+    if(ViewData.ModelState[""] != null && ViewData.ModelState[""].Errors.Count > 0)
+    {
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            @Html.ValidationSummary(true, "Errores: ", new { @class = "text-danger"})
+        </div>
+    }
+
+<div class="text-center d-block">
+    <div class="row form-group">
+        @Html.LabelFor(m => m.UserName, new { @class = "col-md-12" })
+        @Html.EditorFor(m => m.UserName, new { @class = "col-md-12", @required = true })
+    </div>
+
+    <div class="row form-group">
+        @Html.LabelFor(m => m.Password, new { @class = "col-md-12" })
+        @Html.EditorFor(m => m.Password, new { @class = "col-md-12", @required = true })
+    </div>
+
+    <div class="row">
+        <span class="col-md-12">Remember me @Html.CheckBoxFor(m => m.Remember)</span>
+        <span class="col-md-12"><a href="@Url.Action("Register", "Login")">Create an account</a></span>
+        <span class="col-md-12"><a href="@Url.Action("RecoverPassword", "Login")">¿Forgot password?</a></span>
+    </div>
+</div>
+}
