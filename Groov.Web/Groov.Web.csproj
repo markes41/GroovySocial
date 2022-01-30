@@ -3,6 +3,8 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
+    <AssemblyName>Groov.Web</AssemblyName>
+    <RootNamespace>Groov.Web</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Grood.Data.Base\Groov.Data.Base.csproj" />
+    <ProjectReference Include="..\Groov.Data.Base\Groov.Data.Base.csproj" />
     <ProjectReference Include="..\Groov.Library.Data\Groov.Library.Data.csproj" />
   </ItemGroup>
 

@@ -63,10 +63,9 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\Grood.Data.Base\Groov.Data.Base.csproj">
-      <Project>{49C8D2F6-8E6B-490D-A602-3BA09D92A442}</Project>
+    <ProjectReference Include="..\Groov.Data.Base\Groov.Data.Base.csproj">
+      <Project>{49c8d2f6-8e6b-490d-a602-3ba09d92a442}</Project>
       <Name>Groov.Data.Base</Name>
     </ProjectReference>
   </ItemGroup>
