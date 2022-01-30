@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // La información general de un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
 // asociada con un ensamblado.
-[assembly: AssemblyTitle("Groov.Data.Users")]
+[assembly: AssemblyTitle("Groov.Library.Data")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Groov.Data.Users")]
+[assembly: AssemblyProduct("Groov.Library.Data")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // El siguiente GUID sirve como id. de typelib si este proyecto se expone a COM.
-[assembly: Guid("c67d7351-e171-4f64-96a4-4499e0ca597d")]
+[assembly: Guid("1bcce6d8-bd8f-4aab-b7e4-a0c426df4777")]
 
 // La información de versión de un ensamblado consta de los cuatro valores siguientes:
 //

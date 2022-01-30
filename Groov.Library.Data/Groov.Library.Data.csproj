@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C67D7351-E171-4F64-96A4-4499E0CA597D}</ProjectGuid>
+    <ProjectGuid>{1BCCE6D8-BD8F-4AAB-B7E4-A0C426DF4777}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Groov.Data.Users</RootNamespace>
-    <AssemblyName>Groov.Data.Users</AssemblyName>
+    <RootNamespace>Groov.Library.Data</RootNamespace>
+    <AssemblyName>Groov.Library.Data</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -42,6 +42,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -51,21 +52,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Date\UserDate.cs" />
+    <Compile Include="Manager\Base\Base_Manager.cs" />
+    <Compile Include="Manager\User_Manager.cs" />
     <Compile Include="Entities\User.cs" />
-    <Compile Include="Mappings\UsersMap.cs" />
+    <Compile Include="GroovContext.cs" />
+    <Compile Include="Mapping\UsersMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserContext.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Grood.Data.Base\Groov.Data.Base.csproj">
       <Project>{49C8D2F6-8E6B-490D-A602-3BA09D92A442}</Project>
       <Name>Groov.Data.Base</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

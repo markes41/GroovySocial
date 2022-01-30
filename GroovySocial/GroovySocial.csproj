@@ -12,12 +12,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Grood.Data.Base\Groov.Data.Base.csproj" />
-    <ProjectReference Include="..\Groov.Data.Users\Groov.Data.Users.csproj" />
+    <Folder Include="wwwroot\js\Sitio\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\js\Sitio\" />
+    <ProjectReference Include="..\Grood.Data.Base\Groov.Data.Base.csproj" />
+    <ProjectReference Include="..\Groov.Library.Data\Groov.Library.Data.csproj" />
   </ItemGroup>
 
 </Project>

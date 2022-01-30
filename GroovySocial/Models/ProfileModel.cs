@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace GroovySocial.Models.Dto
+namespace GroovySocial.Models
 {
-    public class UserDto
+    public class ProfileModel
     {
     }
 }

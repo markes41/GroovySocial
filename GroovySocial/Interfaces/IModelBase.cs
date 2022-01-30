@@ -8,6 +8,11 @@ namespace GroovySocial.Interfaces
     public interface IModelBase<T>
     {
         /// <summary>
+        /// Capture the error message
+        /// </summary>
+        public string ErrorMessage { get; set; }
+
+        /// <summary>
         /// Generic method to search a register
         /// </summary>
         Task<bool> Search(T entityModel);
@@ -20,6 +25,6 @@ namespace GroovySocial.Interfaces
         /// <summary>
         /// Generic method to Delete a register
         /// </summary>
-        Task<bool> Delete(int id);
+        Task<bool> Delete(T entityModel);
     }
 }

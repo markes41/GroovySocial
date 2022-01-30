@@ -22,8 +22,11 @@ namespace GroovySocial.Helpers
             // Get the current user in session
             var userJsonFormat = _contextAccessor.HttpContext.Session.GetString("UserSession");
 
-            // Convert the json to UserViewModel
-            return JsonSerializer.Deserialize<UserViewModel>(userJsonFormat);
+            // Convert the json to UserViewModel if is distinct of null
+            if (userJsonFormat != null)
+                return JsonSerializer.Deserialize<UserViewModel>(userJsonFormat);
+            else
+                return null;
         }
 
         /// <summary>
