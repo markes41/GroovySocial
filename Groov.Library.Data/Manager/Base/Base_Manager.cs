@@ -30,7 +30,7 @@ namespace Groov.Library.Data.Manager.Base
         /// <summary>
         /// Save any entity in database 
         /// </summary>
-        public async Task<bool> Save(T entityModel, bool isNew)
+        public static async Task<bool> Save(T entityModel, bool isNew)
         {
             try
             {

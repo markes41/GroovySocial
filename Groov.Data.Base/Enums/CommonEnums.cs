@@ -11,7 +11,8 @@ namespace Groov.Data.Base.Enums
         public enum ErrorCode
         {
             Base = 0,
-            User = 1
+            User = 1,
+            Projection = 2
         }
 
         public enum UserStatus

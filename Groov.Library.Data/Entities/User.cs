@@ -17,5 +17,6 @@ namespace Groov.Library.Data.Entities
         public DateTime? Register_Date { get; set; }
         public string City { get; set; }
         public string Biography { get; set; }
+        public byte[] Profile_Image { get; set; }
     }
 }

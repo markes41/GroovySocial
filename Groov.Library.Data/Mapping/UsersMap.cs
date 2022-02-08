@@ -29,6 +29,7 @@ namespace Groov.Library.Data.Mapping
             this.Property(t => t.Register_Date).HasColumnName("Register_Date");
             this.Property(t => t.City).HasColumnName("City");
             this.Property(t => t.Biography).HasColumnName("Biography");
+            this.Property(t => t.Profile_Image).HasColumnName("Profile_Image");
 
 
         }

@@ -61,7 +61,7 @@ namespace GroovySocial
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Login}/{action=Login}/{id?}");
+                    pattern: "{controller=Profile}/{action=Index}/{id?}");
             });
         }
     }

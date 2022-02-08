@@ -1,13 +1,17 @@
-﻿using Groov.Data.Base.Logs;
+﻿using Groov.Data.Base.Custom;
+using Groov.Data.Base.Logs;
 using Groov.Library.Data;
 using Groov.Library.Data.Entities;
 using Groov.Library.Data.Manager;
+using Groov.Web.Helpers;
 using GroovySocial.Helpers;
 using GroovySocial.Interfaces;
 using GroovySocial.ViewModels;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using static Groov.Data.Base.Enums.CommonEnums;
@@ -16,26 +20,28 @@ namespace GroovySocial.Models
 {
     public class LoginModel : IModelBase<UserViewModel>
     {
-        
 
         private User_Manager manager;
 
-        public string ErrorMessage { get => "Los datos introducidos son erróneos."; set => throw new NotImplementedException(); }
+        public string ErrorMessage { get => "Los datos introducidos son erróneos."; set { } }
 
         public LoginModel()
         {
             this.manager = new User_Manager();
+
         }
 
         public async Task<bool> Save(UserViewModel entityModel)
         {
             try
             {
+                var user = new User();
+
                 // Convert viewmodel to original model
-                var user = MapperHelper.ViewModelToModel(entityModel);
+                Mapper.CopyProperties(entityModel, user);
                 
-                // return the result
-                return await this.manager.Save(user, entityModel.Id == 0);
+                // Return the result
+                return await User_Manager.Save(user, entityModel.Id == 0);
                 
             }catch(Exception ex)
             {
@@ -48,21 +54,19 @@ namespace GroovySocial.Models
         {
             try
             {
-                // Search an user in datbase
-                var result = await this.manager.Search(new User() { UserName = entityModel.UserName });
+                // Search an user in database
+                var user = await this.manager.Search(new User() { UserName = entityModel.UserName });
 
-                // If the user exist return true
-                if (result != null)
+                if (user != null)
                     return true;
 
-                // If user not exist return an error message and a false statment
+                // Capture the error
                 this.ErrorMessage = "No se ha encontrado un usuario con las credenciales ingresadas.";
                 return false;
 
             }
             catch(Exception ex)
             {
-                // If any error happen will be saved in a Log
                 ApplicationLog.LogError(ex, ErrorCode.User, "Search()");
                 return false;
             }
@@ -72,16 +76,23 @@ namespace GroovySocial.Models
         {
             try
             {
+                // Search any user
                 var user = await this.manager.Search(new User() { UserName = entityModel.UserName });
 
-                return await this.manager.Delete(user);
+                // If user has value will delete it, otherwise will return false
+                if (user != null)
+                    return await this.manager.Delete(user);
+
+                this.ErrorMessage = "No se ha encontrado el usuario a borrar.";
+                return false;
             }
             catch (Exception ex)
             {
-                // If any error happen will be saved in a Log
                 ApplicationLog.LogError(ex, ErrorCode.User, "Delete()");
                 return false;
             }
         }
+
     }
 }
+

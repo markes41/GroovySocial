@@ -10,9 +10,9 @@ namespace GroovySocial.Controllers
     public class LoginController : Controller
     {
 
-        private SessionHelper session;
-        private UserViewModel user;
-        private LoginModel model;
+        private readonly SessionHelper session;
+        private readonly UserViewModel user;
+        private readonly LoginModel model;
 
         public LoginController(SessionHelper session)
         {
@@ -27,7 +27,7 @@ namespace GroovySocial.Controllers
         [HttpGet]
         public IActionResult Login()
         {
-            // If user is not login it will redirect to error page
+            // Check any user in session
             if (user == null)
                 return View();
 
@@ -35,25 +35,25 @@ namespace GroovySocial.Controllers
         }
 
         /// <summary>
-        /// Post IActionResult to validate the login
+        /// Post to validate the login
         /// </summary>
         [HttpPost]
         public async Task<IActionResult> Login(UserViewModel user)
         {
             try
             {
-                // Validate the model coming as parameter
+                // Validate the model
                 if (ModelState.IsValid)
                 {
-                    // Search the user in database
+                    // Search the user
                     var result = await model.Search(user);
 
-                    // If find any user redirect to Home
+                    // Redirect to Home if true
                     if (result)
                         return RedirectToAction("Index", "Home");
                 }
 
-                // If any error happens then it return the message error to the view
+                // Capture the error
                 ModelState.AddModelError("", model.ErrorMessage);
                 return View();
             } 

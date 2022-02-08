@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Custom\Mapper.cs" />
     <Compile Include="Enums\CommonEnums.cs" />
     <Compile Include="Logs\ApplicationLog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

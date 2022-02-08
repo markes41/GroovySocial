@@ -12,6 +12,7 @@ namespace GroovySocial.ViewModels
         public string City { get; set; }
         public string Biography { get; set; }
         public bool Remember { get; set; }
+        public string Profile_Image { get; set; }
 
     }
 }
